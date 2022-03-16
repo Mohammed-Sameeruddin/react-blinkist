@@ -1,0 +1,128 @@
+import { createTheme, ThemeProvider } from "@mui/material";
+import { Box, Container } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/styles";
+import { useNavigate } from "react-router-dom";
+import Typography from "../../atoms/Typography/Typography";
+import NavData from "../../../data/ExtendedNav";
+import IconWithTypography from "../../molecules/IconWithTypography/IconWithTypography";
+
+const theme = createTheme({
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        body1: {
+          fontFamily: "Cera Pro",
+          fontWeight: "500",
+          fontSize: "16px",
+          lineHeight: "20px",
+        },
+      },
+    },
+  },
+});
+
+const useStyles = makeStyles(theme => ({
+  div1: {
+    paddingLeft: "0px",
+    paddingRight: "0px",
+    boxSizing: "border-box",
+    minWidth: "100%",
+    height: "398px",
+    backgroundColor: "#F1F6F4",
+    margin: "0 auto",
+    position: "absolute",
+    zIndex: "2",
+    overflowX: "hidden",
+  },
+  box1: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    gap: "150px",
+    position: "relative",
+    top: "30px",
+    paddingBottom: "24px",
+    borderBottom: "1px solid black",
+    width: "900px",
+    margin: "0 auto",
+  },
+  tab1: {
+    color: "#116BE9",
+  },
+  navItems: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: "900px",
+    top: "40px",
+    position: "relative",
+    gap: " 16px 140px",
+    justifyContent: "flex-start",
+    alignContent: "flexStart",
+    margin: "0 auto",
+  },
+  items: {
+    width: "182px",
+  },
+  hover: {
+    cursor: "pointer",
+    "&:hover": {
+      color: "#116BE9",
+    },
+  },
+}));
+
+const WrapStyled = styled("div")({
+  height: "100%",
+  width: "100%",
+  backgroundColor: "rgba(157, 163, 166, 0.45)",
+  position: "absolute",
+  top: "400px",
+  zIndex: "1",
+});
+
+const ExtendedNav = () => {
+  const style = useStyles();
+
+  const navigate = useNavigate();
+
+  const showEnterprenuerList = () => {
+    navigate("/entrepreneur");
+  };
+  return (
+    <ThemeProvider theme={theme}>
+      <div className={style.div1}>
+        <Container>
+          <Box className={style.box1}>
+            <Typography variant="body1" className={style.tab1}>
+              Explore by category
+            </Typography>
+            <Typography variant="body1">See recently added titles</Typography>
+            <Typography variant="body1">See popular titles</Typography>
+          </Box>
+          <Box className={style.navItems}>
+            {console.log(NavData[0].icon)}
+            {NavData.map((data, index) => {
+              return (
+                <div className={style.items}>
+                  <IconWithTypography
+                    key={index}
+                    iconSrc={data.icon}
+                    title={data.title}
+                    variant="body2"
+                    className={style.hover}
+                    onClick={showEnterprenuerList}
+                  />
+                </div>
+              );
+            })}
+          </Box>
+        </Container>
+      </div>
+      <WrapStyled></WrapStyled>
+    </ThemeProvider>
+  );
+};
+
+export default ExtendedNav;
