@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import DisplayCard from "./DisplayCard";
 import Data from "../../../data/Library";
+import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -26,9 +27,11 @@ export default {
 } as ComponentMeta<typeof DisplayCard>;
 
 const Template: ComponentStory<typeof DisplayCard> = args => (
-  <ThemeProvider theme={theme}>
-    <DisplayCard {...args} />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <DisplayCard {...args} />
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
 export const DisplayCardStory = Template.bind({});

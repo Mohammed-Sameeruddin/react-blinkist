@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import ExtendedNav from "./ExtendedNav";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -23,9 +24,11 @@ export default {
 } as ComponentMeta<typeof ExtendedNav>;
 
 const Template: ComponentStory<typeof ExtendedNav> = () => (
-  <ThemeProvider theme={theme}>
-    <ExtendedNav />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <ExtendedNav />
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
 export const ExtendedNavStory = Template.bind({});

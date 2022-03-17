@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Header from "./Header";
+import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   components: {
@@ -25,9 +26,11 @@ export default {
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = () => (
-  <ThemeProvider theme={theme}>
-    <Header />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Header />
+    </ThemeProvider>
+  </BrowserRouter>
 );
 
 export const HeaderStory = Template.bind({});

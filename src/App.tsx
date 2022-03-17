@@ -5,13 +5,11 @@ import BookDetail from "./components/templates/BookDetail/BookDetail";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MyLibrary />} />
-        <Route path="/entrepreneur" element={<Entrepreneur />} />
-        <Route path="/bookdetails" element={<BookDetail />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<MyLibrary />} />
+      <Route path="/entrepreneur" element={<Entrepreneur />} />
+      <Route path="/bookdetails" element={<BookDetail />} />
+    </Routes>
   );
 };
 

@@ -73,6 +73,8 @@ const Header = () => {
     transform: "rotate(0deg)",
   });
 
+  const navigate = useNavigate();
+
   const showDropdown = () => {
     showExplore ? setShowExplore(false) : setShowExplore(true);
 
@@ -82,8 +84,6 @@ const Header = () => {
       SetIconStyle({ transform: "rotate(180deg)" });
     }
   };
-
-  const navigate = useNavigate();
 
   const style = useStyles();
   return (
