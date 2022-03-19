@@ -81,10 +81,8 @@ const BookView = () => {
   };
 
   const handleFinish = async (num: number) => {
-    console.log(bookData);
     bookData.state.isFinished = true;
-    const response = await api.put(`/library/${num}`, bookData);
-    console.log(response.data);
+    await api.put(`/library/${num}`, bookData);
   };
 
   useEffect(() => {

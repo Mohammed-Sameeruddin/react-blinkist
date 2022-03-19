@@ -12,6 +12,7 @@ interface IIconProps {
 const IconButtonComponent = (props: IIconProps) => {
   return (
     <IconButton
+      role="iconButton"
       onClick={props.onClick}
       edge={props.type === "account" ? "end" : false}
       className={props.className}
