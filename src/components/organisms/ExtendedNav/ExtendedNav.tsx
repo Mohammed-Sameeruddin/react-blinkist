@@ -24,8 +24,6 @@ const theme = createTheme({
 
 const useStyles = makeStyles(theme => ({
   div1: {
-    paddingLeft: "0px",
-    paddingRight: "0px",
     boxSizing: "border-box",
     minWidth: "100%",
     height: "398px",
@@ -34,6 +32,7 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     zIndex: "2",
     overflowX: "hidden",
+    left: "0px",
   },
   box1: {
     display: "flex",
@@ -76,10 +75,12 @@ const useStyles = makeStyles(theme => ({
 const WrapStyled = styled("div")({
   height: "100%",
   width: "100%",
+  boxSizing: "border-box",
   backgroundColor: "rgba(157, 163, 166, 0.45)",
   position: "absolute",
-  top: "400px",
   zIndex: "1",
+  margin: "0 auto",
+  left: "0px",
 });
 
 const ExtendedNav = () => {
@@ -90,37 +91,39 @@ const ExtendedNav = () => {
   const showEnterprenuerList = () => {
     navigate("/entrepreneur");
   };
+
   return (
     <ThemeProvider theme={theme}>
-      <div className={style.div1}>
-        <Container>
-          <Box className={style.box1}>
-            <Typography variant="body1" className={style.tab1}>
-              Explore by category
-            </Typography>
-            <Typography variant="body1">See recently added titles</Typography>
-            <Typography variant="body1">See popular titles</Typography>
-          </Box>
-          <Box className={style.navItems}>
-            {console.log(NavData[0].icon)}
-            {NavData.map((data, index) => {
-              return (
-                <div className={style.items}>
-                  <IconWithTypography
-                    key={index}
-                    iconSrc={data.icon}
-                    title={data.title}
-                    variant="body2"
-                    className={style.hover}
-                    onClick={showEnterprenuerList}
-                  />
-                </div>
-              );
-            })}
-          </Box>
-        </Container>
-      </div>
-      <WrapStyled></WrapStyled>
+      <WrapStyled>
+        <div className={style.div1}>
+          <Container>
+            <Box className={style.box1}>
+              <Typography variant="body1" className={style.tab1}>
+                Explore by category
+              </Typography>
+              <Typography variant="body1">See recently added titles</Typography>
+              <Typography variant="body1">See popular titles</Typography>
+            </Box>
+            <Box className={style.navItems}>
+              {console.log(NavData[0].icon)}
+              {NavData.map((data, index) => {
+                return (
+                  <div className={style.items}>
+                    <IconWithTypography
+                      key={index}
+                      iconSrc={data.icon}
+                      title={data.title}
+                      variant="body2"
+                      className={style.hover}
+                      onClick={showEnterprenuerList}
+                    />
+                  </div>
+                );
+              })}
+            </Box>
+          </Container>
+        </div>
+      </WrapStyled>
     </ThemeProvider>
   );
 };

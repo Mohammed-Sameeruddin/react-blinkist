@@ -11,6 +11,8 @@ const theme = createTheme({
       styleOverrides: {
         text: {
           textTransform: "none",
+          backgroundColor: "green",
+          color: "white",
         },
       },
     },

@@ -104,6 +104,7 @@ const LabTabs = () => {
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
+                color="secondary"
               >
                 <Tab
                   label="Currently Reading"

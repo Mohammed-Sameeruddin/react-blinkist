@@ -47,6 +47,7 @@ const FooterFrame = styled("div")({
   position: "relative",
   top: "38px",
   display: "flex",
+  left: "0px",
 });
 
 const LeftFrame = styled("div")({
