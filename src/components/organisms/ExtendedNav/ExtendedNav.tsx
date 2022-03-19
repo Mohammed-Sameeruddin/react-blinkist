@@ -1,10 +1,8 @@
-import { createTheme, ThemeProvider } from "@mui/material";
-import { Box, Container } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import { styled } from "@mui/styles";
+import { createTheme, ThemeProvider, Box, Container } from "@mui/material";
+import { makeStyles, styled } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 import Typography from "../../atoms/Typography/Typography";
-import NavData from "../../../data/ExtendedNav";
+import NavData from "../../../data/ExtendedNavData";
 import IconWithTypography from "../../molecules/IconWithTypography/IconWithTypography";
 
 const theme = createTheme({
@@ -22,7 +20,7 @@ const theme = createTheme({
   },
 });
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   div1: {
     boxSizing: "border-box",
     minWidth: "100%",
@@ -70,7 +68,7 @@ const useStyles = makeStyles(theme => ({
       color: "#116BE9",
     },
   },
-}));
+});
 
 const WrapStyled = styled("div")({
   height: "100%",

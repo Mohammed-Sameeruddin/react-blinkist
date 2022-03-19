@@ -1,6 +1,5 @@
-import { Container } from "@mui/material";
+import { Container, createTheme, ThemeProvider } from "@mui/material";
 import { styled } from "@mui/styles";
-import { createTheme, ThemeProvider } from "@mui/material";
 import Typography from "../../atoms/Typography/Typography";
 import banner from "../../../images/banner.svg";
 import Constants from "../../../data/Constants";

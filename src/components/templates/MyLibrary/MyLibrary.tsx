@@ -4,11 +4,11 @@ import { makeStyles } from "@mui/styles";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Typography from "../../atoms/Typography/Typography";
 import Header from "../../organisms/Header/Header";
-import Tabs from "../../organisms/Tab/Tab";
+import Tabs from "../../organisms/Tab/LabTabs";
 import Footer from "../../organisms/Footer/Footer";
 import Constants from "../../../data/Constants";
 
-const theme = createTheme({
+const upperTheme = createTheme({
   components: {
     MuiTypography: {
       styleOverrides: {
@@ -25,7 +25,7 @@ const theme = createTheme({
   },
 });
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     margin: "0px",
     padding: "0px",
@@ -34,12 +34,12 @@ const useStyles = makeStyles(theme => ({
   heading: {
     marginTop: "59px",
   },
-}));
+});
 
 const MyLibrary = () => {
   const style = useStyles();
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={upperTheme}>
       <div className={style.root}>
         <Header />
         <Container>

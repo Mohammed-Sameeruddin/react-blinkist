@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import IconButton from "./IconButton";
+import IconButton from "./IconButtonComponent";
 
 import { ReactComponent as SearchIcon } from "../../../images/search.svg";
 import { ReactComponent as DropdownIcon } from "../../../images/downarrow.svg";

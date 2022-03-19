@@ -1,5 +1,4 @@
-import { Container, Box } from "@mui/material";
-import { styled } from "@mui/material";
+import { Container, Box, styled } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Search from "../../../images/search.svg";
 

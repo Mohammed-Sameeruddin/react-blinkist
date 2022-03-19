@@ -6,8 +6,6 @@ import { useState, useEffect } from "react";
 import Typography from "../../atoms/Typography/Typography";
 import { ReactComponent as Time } from "../../../images/time.svg";
 import { ReactComponent as User } from "../../../images/user.svg";
-import Icon from "../../atoms/Icons/IconButton";
-import { ReactComponent as More } from "../../../images/more.svg";
 import IconWithTypography from "../../molecules/IconWithTypography/IconWithTypography";
 import AddButton from "../../molecules/AddButton/AddButton";
 import { ReactComponent as Add } from "../../../images/add.svg";
@@ -266,7 +264,9 @@ const Card = (props: CardProps) => {
             >
               Finished
             </Typography>
-          ) : props.readAgain ? (
+          ) : null}
+
+          {props.readAgain ? (
             <Typography
               variant="body1"
               className={style.finished}
@@ -274,7 +274,9 @@ const Card = (props: CardProps) => {
             >
               Read Again
             </Typography>
-          ) : props.addToLibrary ? (
+          ) : null}
+
+          {props.addToLibrary ? (
             <AddButton
               style={linkStyle}
               className={style.addButton}
@@ -287,17 +289,7 @@ const Card = (props: CardProps) => {
                 title="Add to library"
               />
             </AddButton>
-          ) : (
-            <>
-              <Icon>
-                <More className={style.more} width="18px" height="4px" />
-              </Icon>
-              <div className={style.footer}>
-                <div className={style.left}></div>
-                <div></div>
-              </div>
-            </>
-          )}
+          ) : null}
         </Box>
       </ThemeProvider>
     </>

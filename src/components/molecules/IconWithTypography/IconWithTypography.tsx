@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import Icon from "../../atoms/Icons/IconButton";
+import Icon from "../../atoms/Icons/IconButtonComponent";
 import Typography from "../../atoms/Typography/Typography";
 import classNames from "classnames";
 

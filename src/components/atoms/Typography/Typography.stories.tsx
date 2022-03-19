@@ -1,15 +1,14 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Typography from "./Typography";
-import { ItypographyProps } from "./Typography";
 
 export default {
   title: "Typography",
   component: Typography,
 } as ComponentMeta<typeof Typography>;
 
-const Template: ComponentStory<typeof Typography> = (
-  args: ItypographyProps
-) => <Typography {...args} />;
+const Template: ComponentStory<typeof Typography> = args => (
+  <Typography {...args} />
+);
 
 export const Heading = Template.bind({});
 Heading.args = {

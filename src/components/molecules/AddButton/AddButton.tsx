@@ -1,5 +1,4 @@
-import { Button } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { Button, createTheme, ThemeProvider } from "@mui/material";
 
 interface ButtonProps {
   children: React.ReactNode;

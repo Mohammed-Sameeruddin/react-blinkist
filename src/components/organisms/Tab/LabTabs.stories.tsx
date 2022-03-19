@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Tab from "./Tab";
+import Tab from "./LabTabs";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({

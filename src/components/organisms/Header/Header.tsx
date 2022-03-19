@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "../../molecules/Dropdown/Dropdown";
 import Typography from "../../atoms/Typography/Typography";
-import Icon from "../../atoms/Icons/IconButton";
+import Icon from "../../atoms/Icons/IconButtonComponent";
 import Logo from "../../atoms/Logo/Logo";
 import SearchIcon from "../../../images/search.svg";
 import ExtendedNav from "../../organisms/ExtendedNav/ExtendedNav";

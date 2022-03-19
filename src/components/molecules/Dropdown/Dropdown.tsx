@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { makeStyles } from "@mui/styles";
 import Typography from "../../atoms/Typography/Typography";
-import Icon from "../../atoms/Icons/IconButton";
+import Icon from "../../atoms/Icons/IconButtonComponent";
 import classNames from "classnames";
 import { ReactComponent as ExpandIcon } from "../../../images/downarrow.svg";
 import { ReactComponent as Account } from "../../../images/account.svg";
