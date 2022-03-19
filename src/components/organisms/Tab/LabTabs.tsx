@@ -11,7 +11,7 @@ import { styled, makeStyles } from "@mui/styles";
 import { DataObject } from "../BookView/BookView";
 import api from "../../../api/library";
 
-const theme = createTheme({
+const tabTheme = createTheme({
   components: {
     MuiTab: {
       styleOverrides: {
@@ -32,13 +32,13 @@ const theme = createTheme({
   },
 });
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     width: "304px",
     height: "39px",
     textTransform: "none",
   },
-}));
+});
 
 const CardStyled = styled("div")({
   display: "flex",
@@ -86,7 +86,7 @@ const LabTabs = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={tabTheme}>
         <Box
           sx={{
             typography: "body1",

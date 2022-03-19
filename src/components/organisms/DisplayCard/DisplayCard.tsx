@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { styled, makeStyles } from "@mui/styles";
 import Card from "../Card/Card";
 import Typography from "../../atoms/Typography/Typography";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 type ObjectType = {
@@ -68,11 +67,13 @@ const DisplayCard = (props: CardProps) => {
   const [showData, setShowData] = useState(props.data);
 
   useEffect(() => {
-    props.state === "trending"
-      ? setShowData(showData.filter(item => item.state.isTrending))
-      : props.state === "featured"
-      ? setShowData(showData.filter(item => item.state.isFeatured))
-      : setShowData(showData.filter(item => item.state.justAdded));
+    if (props.state === "trending") {
+      setShowData(showData.filter(item => item.state.isTrending));
+    } else {
+      props.state === "featured"
+        ? setShowData(showData.filter(item => item.state.isFeatured))
+        : setShowData(showData.filter(item => item.state.justAdded));
+    }
   }, [props.state, showData]);
 
   const navigate = useNavigate();
