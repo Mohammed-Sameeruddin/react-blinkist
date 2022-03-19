@@ -1,0 +1,7 @@
+organization=mohammed-sameeruddin
+projectKey=Mohammed-Sameeruddin_zemoso-int
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.27634
+dashboardUrl=https://sonarcloud.io/dashboard?id=Mohammed-Sameeruddin_zemoso-int
+ceTaskId=AX-hybmF-WcnXJG3vGB1
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AX-hybmF-WcnXJG3vGB1
