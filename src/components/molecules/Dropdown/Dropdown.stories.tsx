@@ -4,6 +4,7 @@ import Dropdown from "./Dropdown";
 export default {
   title: "Drop down",
   component: Dropdown,
+  argTypes: { onClick: { action: "clicked" } },
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = args => (

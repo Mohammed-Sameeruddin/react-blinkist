@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Typography from "../../atoms/Typography/Typography";
 import NavData from "../../../data/ExtendedNavData";
 import IconWithTypography from "../../molecules/IconWithTypography/IconWithTypography";
+import { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const theme = createTheme({
   components: {
@@ -82,17 +84,31 @@ const WrapStyled = styled("div")({
 });
 
 const ExtendedNav = () => {
+  const [wrapStyle, setWrapStyle] = useState({
+    width: document.body.clientWidth,
+    height: document.body.clientHeight,
+  });
+
+  useEffect(() => {
+    setWrapStyle({
+      width: document.body.clientWidth,
+      height: document.body.clientHeight,
+    });
+  }, [wrapStyle]);
+
   const style = useStyles();
 
   const navigate = useNavigate();
 
+  const { isAuthenticated } = useAuth0();
+
   const showEnterprenuerList = () => {
-    navigate("/entrepreneur");
+    isAuthenticated ? navigate("/entrepreneur") : navigate("/");
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <WrapStyled>
+      <WrapStyled style={wrapStyle}>
         <div className={style.div1}>
           <Container>
             <Box className={style.box1}>

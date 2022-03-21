@@ -1,7 +1,10 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import Header from "../../organisms/Header/Header";
-import Footer from "../../organisms/Footer/Footer";
-import BookView from "../../organisms/BookView/BookView";
+
+interface BookViewProps {
+  header: React.ReactNode;
+  bookView: React.ReactNode;
+  footer: React.ReactNode;
+}
 
 const theme = createTheme({
   components: {
@@ -52,13 +55,13 @@ const theme = createTheme({
   },
 });
 
-const BookDetail = () => {
+const BookDetail = (props: BookViewProps) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Header />
-        <BookView />
-        <Footer />
+        {props.header}
+        {props.bookView}
+        {props.footer}
       </ThemeProvider>
     </>
   );

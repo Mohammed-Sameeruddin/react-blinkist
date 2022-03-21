@@ -22,6 +22,15 @@ const theme = createTheme({
 export default {
   title: "Add Button",
   component: AddButton,
+  argTypes: {
+    onClick: { action: "clicked" },
+    onMouseEnter: { action: "Mouse Enter" },
+    onMouseLeave: { action: "Mouse Leave" },
+    variant: {
+      options: ["primary", "secondary"],
+      control: { type: "radio" },
+    },
+  },
 } as ComponentMeta<typeof AddButton>;
 
 const Template: ComponentStory<typeof AddButton> = args => (

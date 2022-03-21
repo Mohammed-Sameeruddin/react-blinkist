@@ -4,6 +4,7 @@ import { styled, makeStyles } from "@mui/styles";
 import Card from "../Card/Card";
 import Typography from "../../atoms/Typography/Typography";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 type ObjectType = {
   id: number;
@@ -77,10 +78,11 @@ const DisplayCard = (props: CardProps) => {
   }, [props.state, showData]);
 
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth0();
 
   const showBookDetails = (index: number) => {
     if (index === 1) {
-      navigate("/bookdetails");
+      isAuthenticated ? navigate("/bookdetails") : navigate("/");
     }
   };
   const style = useStyles();

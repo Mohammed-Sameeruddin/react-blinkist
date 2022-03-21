@@ -114,6 +114,7 @@ const LabTabs = () => {
                 <Tab label="Finished" value="2" className={style.root} />
               </TabList>
             </Box>
+
             <TabPanel value="1">
               <CardStyled>
                 {finishCard

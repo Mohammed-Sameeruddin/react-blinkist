@@ -1,7 +1,11 @@
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import {
+  Box,
+  Container,
+  Paper,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { createTheme, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "../../molecules/Dropdown/Dropdown";
@@ -11,6 +15,8 @@ import Logo from "../../atoms/Logo/Logo";
 import SearchIcon from "../../../images/search.svg";
 import ExtendedNav from "../../organisms/ExtendedNav/ExtendedNav";
 import Constants from "../../../data/Constants";
+import AddButton from "../../molecules/AddButton/AddButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const theme = createTheme({
   components: {
@@ -65,23 +71,47 @@ const useStyles = makeStyles(() => ({
     marginLeft: "auto",
     alignSelf: "center",
   },
+  logout: {
+    position: "absolute",
+    right: "400px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "8px",
+    zIndex: "3",
+  },
 }));
 
 const Header = () => {
   const [showExplore, setShowExplore] = useState(false);
-  const [iconStyle, SetIconStyle] = useState({
+  const [showLogout, setShowLogout] = useState(false);
+  const [exploreIconStyle, setExploreIconStyle] = useState({
+    transform: "rotate(0deg)",
+  });
+  const [accountIconStyle, setAccountIconStyle] = useState({
     transform: "rotate(0deg)",
   });
 
   const navigate = useNavigate();
 
-  const showDropdown = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+
+  const showExploreDropdown = () => {
     showExplore ? setShowExplore(false) : setShowExplore(true);
 
     if (showExplore) {
-      SetIconStyle({ transform: "rotate(0deg)" });
+      setExploreIconStyle({ transform: "rotate(0deg)" });
     } else {
-      SetIconStyle({ transform: "rotate(180deg)" });
+      setExploreIconStyle({ transform: "rotate(180deg)" });
+    }
+  };
+
+  const showAccountDropdown = () => {
+    showLogout ? setShowLogout(false) : setShowLogout(true);
+
+    if (showLogout) {
+      setAccountIconStyle({ transform: "rotate(0deg)" });
+    } else {
+      setAccountIconStyle({ transform: "rorate(180deg)" });
     }
   };
 
@@ -92,26 +122,73 @@ const Header = () => {
         <Container>
           <Box className={style.root}>
             <Logo className={style.logo} />
-            <Icon>
-              <img src={SearchIcon} alt="icon" />
-            </Icon>
-            <Dropdown
-              title={Constants.header.link1}
-              className={style.explore}
-              onClick={showDropdown}
-              style={iconStyle}
-            />
-            <Typography
-              variant="body1"
-              className={style.library}
-              onClick={() => navigate("/")}
-            >
-              {Constants.header.link2}
-            </Typography>
-            <Dropdown title="Account" className={style.account} />
+            {isAuthenticated ? (
+              <>
+                <Icon>
+                  <img src={SearchIcon} alt="icon" />
+                </Icon>
+                <Dropdown
+                  title={Constants.header.link1}
+                  className={style.explore}
+                  onClick={showExploreDropdown}
+                  style={exploreIconStyle}
+                />
+                <Typography
+                  variant="body1"
+                  className={style.library}
+                  onClick={() =>
+                    isAuthenticated ? navigate("/library") : navigate("/")
+                  }
+                >
+                  {Constants.header.link2}
+                </Typography>
+
+                <Dropdown
+                  title="Account"
+                  className={style.account}
+                  onClick={showAccountDropdown}
+                  style={accountIconStyle}
+                />
+              </>
+            ) : (
+              <AddButton
+                onClick={() => {
+                  localStorage.setItem("login", "true");
+                  loginWithRedirect();
+                }}
+                className={style.account}
+                style={{
+                  marginLeft: "auto",
+                  backgroundColor: "#22C870",
+                  color: "black",
+                }}
+              >
+                <Typography variant="body1">Login</Typography>
+              </AddButton>
+            )}
           </Box>
         </Container>
         {showExplore ? <ExtendedNav /> : null}
+        {isAuthenticated && showLogout ? (
+          <Paper className={style.logout} style={{ width: "110px" }}>
+            <AddButton>
+              <Typography variant="body1">My Profile</Typography>
+            </AddButton>
+            <AddButton>
+              <Typography variant="body1">Settings</Typography>
+            </AddButton>
+
+            <AddButton
+              onClick={() => {
+                logout();
+                localStorage.removeItem("login");
+              }}
+              style={{ color: "red" }}
+            >
+              <Typography variant="body1">Logout</Typography>
+            </AddButton>
+          </Paper>
+        ) : null}
       </ThemeProvider>
     </>
   );

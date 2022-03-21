@@ -5,6 +5,7 @@ import Typography from "../../atoms/Typography/Typography";
 import FooterNav from "../FooterNav/FooterNav";
 import data from "../../../data/FooterNav";
 import Constants from "../../../data/Constants";
+import { useEffect, useState } from "react";
 
 const theme = createTheme({
   components: {
@@ -28,12 +29,15 @@ const theme = createTheme({
   },
 });
 
+const width = document.body.clientWidth;
+
+console.log(width);
+
 const FooterStyled = styled("div")({
-  padding: "0px",
-  boxSizing: "border-box",
   height: "370px",
   backgroundColor: "#F1F6F4",
   width: "100%",
+  // width: "952px",
   display: "flex",
   flexDirection: "column",
   gap: "48px",
@@ -76,10 +80,16 @@ const BottomFrame = styled("div")({
 });
 
 const Footer = () => {
+  const [footerWidth, setFooterWidth] = useState(document.body.clientWidth);
+
+  useEffect(() => {
+    setFooterWidth(document.body.clientWidth);
+  }, [footerWidth]);
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <FooterStyled>
+        <FooterStyled style={{ width: footerWidth }}>
           <FooterFrame>
             <LeftFrame>
               <Logo />

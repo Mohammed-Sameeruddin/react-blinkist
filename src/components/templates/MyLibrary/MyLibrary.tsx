@@ -2,11 +2,13 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { makeStyles } from "@mui/styles";
 import { createTheme, ThemeProvider } from "@mui/material";
-import Typography from "../../atoms/Typography/Typography";
-import Header from "../../organisms/Header/Header";
-import Tabs from "../../organisms/Tab/LabTabs";
-import Footer from "../../organisms/Footer/Footer";
-import Constants from "../../../data/Constants";
+
+interface MyLibraryProps {
+  header: React.ReactNode;
+  heading: React.ReactNode;
+  tab: React.ReactNode;
+  footer: React.ReactNode;
+}
 
 const upperTheme = createTheme({
   components: {
@@ -36,21 +38,19 @@ const useStyles = makeStyles({
   },
 });
 
-const MyLibrary = () => {
+const MyLibrary = (props: MyLibraryProps) => {
   const style = useStyles();
   return (
     <ThemeProvider theme={upperTheme}>
       <div className={style.root}>
-        <Header />
+        {props.header}
         <Container>
           <Box sx={{ width: "912px", margin: "59px auto " }}>
-            <Typography variant="h1" className={style.heading}>
-              {Constants.header.heading}
-            </Typography>
-            <Tabs />
+            <div className={style.heading}>{props.heading}</div>
+            {props.tab}
           </Box>
         </Container>
-        <Footer />
+        {props.footer}
       </div>
     </ThemeProvider>
   );

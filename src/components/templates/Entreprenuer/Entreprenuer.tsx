@@ -1,12 +1,15 @@
 import { makeStyles, styled } from "@mui/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Header from "../../organisms/Header/Header";
-import Banner from "../../organisms/Banner/Banner";
-import SearchBar from "../../molecules/SearchBar/SearchBar";
-import DisplayCard from "../../organisms/DisplayCard/DisplayCard";
-import Footer from "../../organisms/Footer/Footer";
-import BookData from "../../../data/Library";
-import Constants from "../../../data/Constants";
+
+interface EntrepreneurProps {
+  header: React.ReactNode;
+  banner: React.ReactNode;
+  search: React.ReactNode;
+  firstSection: React.ReactNode;
+  secondSection: React.ReactNode;
+  thirdSection: React.ReactNode;
+  footer: React.ReactNode;
+}
 
 const theme = createTheme({
   components: {
@@ -57,38 +60,18 @@ const FooterStyled = styled("div")({
   marginTop: "380px",
 });
 
-const Entreprenuer = () => {
+const Entreprenuer = (props: EntrepreneurProps) => {
   const style = useStyles();
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Header />
-        <Banner className={style.banner} />
-        <SearchBar />
-        <FirstSection>
-          <DisplayCard
-            title={Constants.entrepreneur.heading1}
-            data={BookData}
-            state="trending"
-          />
-        </FirstSection>
-        <SecondSection>
-          <DisplayCard
-            title={Constants.entrepreneur.heading2}
-            data={BookData}
-            state="just added"
-          />
-        </SecondSection>
-        <ThirdSection>
-          <DisplayCard
-            title={Constants.entrepreneur.heading3}
-            data={BookData}
-            state="featured"
-          />
-        </ThirdSection>
-        <FooterStyled>
-          <Footer />
-        </FooterStyled>
+        {props.header}
+        <div className={style.banner}>{props.banner}</div>
+        {props.search}
+        <FirstSection>{props.firstSection}</FirstSection>
+        <SecondSection>{props.secondSection}</SecondSection>
+        <ThirdSection>{props.thirdSection}</ThirdSection>
+        <FooterStyled>{props.footer}</FooterStyled>
       </ThemeProvider>
     </>
   );
