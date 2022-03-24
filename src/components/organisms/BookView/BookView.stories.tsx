@@ -3,7 +3,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import BookView from "./BookView";
 
 export default {
-  title: "Book View",
+  title: "Organisms/Book View",
   component: BookView,
 } as ComponentMeta<typeof BookView>;
 
