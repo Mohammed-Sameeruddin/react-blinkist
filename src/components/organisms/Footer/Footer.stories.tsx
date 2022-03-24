@@ -25,7 +25,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Footer",
+  title: "Organisms/Footer",
   component: Footer,
 } as ComponentMeta<typeof Footer>;
 
