@@ -5,7 +5,7 @@ import { ReactComponent as Time } from "../../../images/time.svg";
 import { ReactComponent as Entreprenuer } from "../../../images/entreprenuer.svg";
 
 export default {
-  title: "IconWithTypograph",
+  title: "Molecules/IconWithTypograph",
   component: IconWithTypography,
 } as ComponentMeta<typeof IconWithTypography>;
 
