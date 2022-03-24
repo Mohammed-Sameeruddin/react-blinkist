@@ -32,7 +32,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Tabs",
+  title: "Organisms/Tabs",
   component: Tab,
 } as ComponentMeta<typeof Tab>;
 
