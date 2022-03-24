@@ -5,7 +5,7 @@ import { ReactComponent as SearchIcon } from "../../../images/search.svg";
 import { ReactComponent as DropdownIcon } from "../../../images/downarrow.svg";
 
 export default {
-  title: "IconButton",
+  title: "Atoms/IconButton",
   component: IconButton,
 } as ComponentMeta<typeof IconButton>;
 
