@@ -19,7 +19,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Banner Card",
+  title: "Organisms/Banner Card",
   component: Banner,
   decorators: [story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>],
 } as ComponentMeta<typeof Banner>;
