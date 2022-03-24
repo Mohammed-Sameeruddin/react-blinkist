@@ -35,7 +35,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Card",
+  title: "Organisms/Card",
   component: Card,
 } as ComponentMeta<typeof Card>;
 
