@@ -22,7 +22,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Display Card",
+  title: "Organisms/Display Card",
   component: DisplayCard,
 } as ComponentMeta<typeof DisplayCard>;
 
