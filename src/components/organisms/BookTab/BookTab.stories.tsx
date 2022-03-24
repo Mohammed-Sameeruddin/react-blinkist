@@ -49,7 +49,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Book Tab",
+  title: "Organisms/Book Tab",
   component: BookTab,
 } as ComponentMeta<typeof BookTab>;
 
