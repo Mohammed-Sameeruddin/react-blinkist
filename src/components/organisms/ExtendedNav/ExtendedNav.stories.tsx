@@ -19,7 +19,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Extended Nav",
+  title: "Organisms/Extended Nav",
   component: ExtendedNav,
 } as ComponentMeta<typeof ExtendedNav>;
 
