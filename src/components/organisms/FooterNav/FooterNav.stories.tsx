@@ -3,7 +3,7 @@ import FooterNav from "./FooterNav";
 import data from "../../../data/FooterNav";
 
 export default {
-  title: "FooterNav",
+  title: "Organisms/FooterNav",
   component: FooterNav,
 } as ComponentMeta<typeof FooterNav>;
 
