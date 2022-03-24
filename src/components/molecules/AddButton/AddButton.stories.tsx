@@ -20,7 +20,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Add Button",
+  title: "Molecules/Add Button",
   component: AddButton,
   argTypes: {
     onClick: { action: "clicked" },
