@@ -21,7 +21,7 @@ const theme = createTheme({
 });
 
 export default {
-  title: "Header",
+  title: "Organisms/Header",
   component: Header,
 } as ComponentMeta<typeof Header>;
 
