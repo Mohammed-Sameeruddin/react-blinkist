@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Dropdown from "./Dropdown";
 
 export default {
-  title: "Drop down",
+  title: "Molecules/Drop down",
   component: Dropdown,
   argTypes: { onClick: { action: "clicked" } },
 } as ComponentMeta<typeof Dropdown>;
